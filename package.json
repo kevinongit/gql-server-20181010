@@ -1,5 +1,9 @@
 {
   "name": "gql-server-20181010",
+  "engines" : {
+    "node": "10.9.0",
+    "npm": "6.4.1"
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
