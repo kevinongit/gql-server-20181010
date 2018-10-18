@@ -27,6 +27,7 @@ const getMe = async req => {
 };
 
 const server = new ApolloServer({
+  introspection: true,
   typeDefs: schema,
   resolvers,
   context: async ({ req, connection }) => {
