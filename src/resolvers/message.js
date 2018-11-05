@@ -9,6 +9,12 @@ const fromCursorHash = string => Buffer.from(string, 'base64').toString('ascii')
 
 export default {
   Query: {
+    randomOne: async(_, __, {models,sequelize}) => {
+        const messages = await models.Message.findAll({ order: sequelize.random(), limit: 1});
+
+        console.log("messages = " + JSON.stringify(messages[0]));
+        return messages[0];
+    },
     messages: async (parent, {cursor, limit=100}, { models }) => {
       const cursorOptions = cursor
         ? {
@@ -46,10 +52,16 @@ export default {
   Mutation: {
     createMessage: combineResolvers(
       isAuthenticated,
-      async (parent, { text }, { me, models }) => {
+      async (parent, { keyPhrase, keyPhraseMeaning, sentence, sentenceMeaning, sentenceLang, category }, { me, models }) => {
         const message = await models.Message.create({
-          text,
-          userId: me.id
+          keyPhrase,
+          keyPhraseMeaning,
+          sentence,
+          sentenceMeaning,
+          category,
+          sentenceLang,
+          from: me.username,
+          userId: me.id,
         });
         pubsub.publish(EVENTS.MESSAGE.CREATED, {
             messageCreated: { message },
@@ -65,10 +77,13 @@ export default {
           return await models.Message.destroy({ where: { id } });
         }
     ),
-    updateMessage: async (parent, { id, text }, { models }) => {
+    updateMessage: async (parent, { id, keyPhrase, keyPhraseMeaning, sentence, sentenceMeaning }, { models }) => {
       return await models.Message.update(
         {
-          text: text
+          keyPhrase,
+          keyPhraseMeaning,
+          sentence,
+          sentenceMeaning,
         },
         {
           where: { id: id }

@@ -28,6 +28,7 @@ export default gql`
         username: String!
         email: String!
         role: String
+        point: Int!
         messages: [Message!]
         messageIds: [ID!]
     }

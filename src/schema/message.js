@@ -4,9 +4,19 @@ export default gql`
     extend type Query {
         messages(cursor: String, limit: Int): MessageConnection!
         message(id: ID!): Message!
+        randomOne: Message!
     }
     extend type Mutation {
-        createMessage(text: String): Message!
+        createMessage(
+            sentenceLang: String
+            category: String!
+            keyword: String
+            orgAuthor: String
+            keyPhrase: String!
+            keyPhraseMeaning: String!
+            sentence: String!
+            sentenceMeaning: String!
+        ): Message!
         deleteMessage(id: ID!): Boolean!
         updateMessage(id: ID!, text: String!): Boolean!
     }
@@ -23,7 +33,16 @@ export default gql`
 
     type Message {
         id: ID!
-        text: String!
+        sentenceLang: String!
+        category: String!
+        keyword: String
+        orgAuthor: String
+        from: User!
+        keyPhrase: String!
+        keyPhraseMeaning: String!
+        sentence: String!
+        sentenceMeaning: String!
+        difficulty: Int
         createdAt: String!
         user: User!
     }

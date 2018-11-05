@@ -30,6 +30,9 @@ const user = (sequelize, DataTypes) => {
         role: {
             type: DataTypes.STRING,
         },
+        point: {
+            type: DataTypes.INTEGER,
+        }
     });
 
     User.associate = models => {
