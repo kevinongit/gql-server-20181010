@@ -1,6 +1,6 @@
 {
   "name": "gql-server-20181010",
-  "engines" : {
+  "engines": {
     "node": "10.9.0",
     "npm": "6.4.1"
   },
