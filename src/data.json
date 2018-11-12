@@ -1,0 +1,97 @@
+{
+    "messages" : [
+        {
+            "ID": "1",
+            "sentenceLang" : "en",
+            "category": "idiom",
+            "keyword" : [],
+            "orgAuthor" : "",
+            "from" : "kevin",
+            "keyPhrase" : "apple of one's eye",
+            "keyPhraseMeaning" : "apple of one's eye : 매우 소중한 것/사람",
+            "sentence" : "His daughter is the apple of his eye",
+            "sentenceMeaning" : "그의 딸은 그에게 있어서 굉장히 소중한 사람이다.",
+            "difficulty" : 1,
+            "createdAt" : ""
+        },
+        {
+            "ID": "2",
+            "sentenceLang" : "en",
+            "category": "idiom",
+            "keyword" : [],
+            "orgAuthor" : "",
+            "from" : "kevin",
+            "keyPhrase" : "call it a day",
+            "keyPhraseMeaning" : "call it a day : 하루를 마무리 하다.",
+            "sentence" : "It's already 6 o'clock. Let's call it a day.",
+            "sentenceMeaning" : "벌써 6시야. 자 하루를 마무리 합시다.",
+
+            "difficulty" : 1,
+            "createdAt" : ""
+        },
+        {
+
+        }
+
+    ],
+    "users" : [
+        {
+            "ID": "1",
+            "email": "kevin@example.com",
+            "username": "kevin",
+            "password": "",
+            "role": "admin",
+            "point": 1000,
+            "viewdList": [],
+            "weakList": [],
+            "setting" : []
+        },
+        {
+            "ID": "2",
+            "email": "edgar@example.com",
+            "username": "edgar",
+            "password": "",
+            "role": "normal",
+            "point": 10,
+            "viewdList": [],
+            "weakList": [],
+            "setting" : []
+        },
+        {
+            "ID": "3",
+            "email": "mulan@example.com",
+            "username": "mulan",
+            "password": "",
+            "role": "normal",
+            "point": 0,
+            "viewdList": [],
+            "weakList": [],
+            "setting" : []
+        },
+        {
+            "ID": "4",
+            "email": "kingkong@example.com",
+            "username": "kingkong",
+            "password": "",
+            "role": "normal",
+            "point": 0,
+            "viewdList": [],
+            "weakList": [],
+            "setting" : []
+        },
+        {
+            "ID": "5",
+            "email": "janeair@example.com",
+            "username": "janeair",
+            "password": "",
+            "role": "normal",
+            "point": 20,
+            "viewdList": [],
+            "weakList": [],
+            "setting" : []
+        },
+        {
+
+        }
+    ]
+}

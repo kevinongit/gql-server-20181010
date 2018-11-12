@@ -6,6 +6,7 @@ import { isAdmin } from './authorization'
 
 const createToken = async (user, secret, expiresIn) => {
     const { id, email, username, role } = user;
+    console.log("+createToken - user : '" + username + "'");
     return await jwt.sign({id, email, username, role }, secret, { expiresIn, });
 };
 
@@ -25,7 +26,7 @@ export default {
     Mutation: {
         signUp: async (parent, {username, email, password}, {models, secret }) => {
             const user = await models.User.create({username, email, password});
-
+            console.log("+signUp - user : '" + username + "'");
             return { token: createToken(user, secret, '30m') };
         },
 
@@ -40,11 +41,13 @@ export default {
                 throw new AuthenticationError('Invalid password!');
             }
 
+            console.log("+signIn - user : '" + username + "'");
             return { token: createToken(user, secret, '30m') };
         },
         deleteUser: combineResolvers(
             isAdmin,
             async (parent, { id }, { models }) => {
+                console.log("+deleteUser - userid : '" + id + "'");
                 return await models.User.destroy({
                     where: { id },
                 });
